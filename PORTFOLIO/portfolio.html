@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Malathi S — Developer Portfolio</title>
+
+<meta name="description"
+content="Malathi S — Computer Science and Engineering student and aspiring full stack developer.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --ink: #0F1420;
+    --panel: #171D2E;
+    --panel-2: #1D2438;
+    --line: #262E45;
+    --paper: #EDF1FA;
+    --mist: #8992AD;
+    --mint: #57D9C4;
+    --amber: #F3B65D;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --radius: 12px;
+    --transition: .25s ease;
+    --maxw: 1000px;
+}
+
+/* Light Theme */
+
+html[data-theme="light"] {
+    --ink: #F4F6FB;
+    --panel: #FFFFFF;
+    --panel-2: #F7F8FC;
+    --line: #E1E6F1;
+    --paper: #1A2033;
+    --mist: #5C6480;
+    --mint: #0EA394;
+    --amber: #B5670F;
+}
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.wrap {
+    max-width: var(--maxw);
+    margin: auto;
+    padding: 0 28px;
+}
+
+section {
+    padding: 70px 0;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 70px;
+}
+
+.sec-tag {
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.sec-desc {
+    color: var(--mist);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--mint);
+}
+
+nav.links {
+    display: flex;
+    gap: 25px;
+}
+
+nav.links a {
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    color: var(--mist);
+    text-decoration: none;
+}
+
+nav.links a:hover {
+    color: var(--mint);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-toggle {
+    width: 42px;
+    height: 23px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: var(--panel-2);
+    cursor: pointer;
+    position: relative;
+}
+
+.theme-toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--mint);
+}
+
+html[data-theme="light"] .theme-toggle::after {
+    transform: translateX(19px);
+    background: var(--amber);
+}
+
+.burger {
+    display: none;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--paper);
+    padding: 7px 10px;
+    border-radius: 7px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 100px 0 70px;
+    border-top: none;
+}
+
+.eyebrow {
+    color: var(--mint);
+    font-family: var(--font-mono);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.1;
+    max-width: 700px;
+}
+
+.hero-title span {
+    color: var(--mint);
+}
+
+.hero-sub {
+    color: var(--mist);
+    max-width: 650px;
+    font-size: 1.05rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--mint);
+    color: #081014;
+}
+
+.btn-ghost {
+    border-color: var(--line);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 40px;
+}
+
+.about-grid p {
+    color: var(--mist);
+}
+
+.fact-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 25px;
+}
+
+.fact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.fact-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.fact-list .k {
+    color: var(--mist);
+}
+
+.fact-list .v {
+    text-align: right;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skill-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.skill-col {
+    background: var(--panel);
+    padding: 25px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.skill-col h3 {
+    font-family: var(--font-mono);
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    padding: 7px 11px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    font-family: var(--font-mono);
+    font-size: .8rem;
+}
+
+.chip:hover {
+    border-color: var(--mint);
+    color: var(--mint);
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 25px;
+    transition: transform .25s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project h3 {
+    font-family: var(--font-display);
+}
+
+.project p {
+    color: var(--mist);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.project-tags span {
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: rgba(87,217,196,.12);
+    color: var(--mint);
+    font-family: var(--font-mono);
+    font-size: .7rem;
+}
+
+/* =========================
+   AI ASSISTED ACTIVITY
+========================= */
+
+.ai-box {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+}
+
+.ai-box ul {
+    color: var(--mist);
+}
+
+.ai-box strong {
+    color: var(--paper);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 35px;
+}
+
+.contact-info {
+    color: var(--mist);
+}
+
+.contact-form {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-family: var(--font-mono);
+    font-size: .8rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--panel-2);
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--mint);
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+#formMessage {
+    margin-top: 15px;
+    color: var(--mint);
+    font-family: var(--font-mono);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 35px;
+    color: var(--mist);
+    font-family: var(--font-mono);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 800px) {
+
+    nav.links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--panel);
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    nav.links.open {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .about-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-cols,
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .wrap {
+        padding: 0 18px;
+    }
+
+    .skill-cols,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+<div class="nav-inner">
+
+<a href="#home" class="logo">
+<span>&lt;</span>Malathi S<span>/&gt;</span>
+</a>
+
+<nav class="links" id="navLinks">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#ai">AI Activity</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-right">
+
+<button
+class="theme-toggle"
+id="themeToggle"
+aria-label="Toggle theme">
+</button>
+
+<button
+class="burger"
+id="burgerBtn"
+aria-expanded="false">
+Menu
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main id="home">
+
+<!-- =========================
+     ABOUT / HERO
+========================= -->
+
+<section class="hero">
+
+<div class="wrap">
+
+<p class="eyebrow">
+[x]  Computer Science & Engineering Student
+</p>
+
+<h1 class="hero-title">
+Hello, I'm <span>Malathi</span>.
+I build simple and useful web experiences.
+</h1>
+
+<p class="hero-sub">
+I am a Computer Science and Engineering student interested in
+web development, programming and building practical applications.
+I enjoy learning new technologies and converting ideas into
+working projects.
+</p>
+
+<div class="hero-actions">
+
+<a href="#projects" class="btn btn-primary">
+View Projects
+</a>
+
+<a href="#contact" class="btn btn-ghost">
+Contact Me
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT ME
+========================= -->
+
+<section id="about">
+
+<div class="wrap about-grid">
+
+<div>
+
+<p class="sec-tag">01 — About Me</p>
+
+<h2>About Me</h2>
+
+<p>
+I am currently pursuing my
+<strong>B.E. Computer Science and Engineering</strong>.
+I have a strong interest in programming and web development.
+</p>
+
+<p>
+I enjoy developing websites and applications and learning
+new technologies through practical projects.
+</p>
+
+<p>
+My strengths include problem solving, teamwork,
+communication and adaptability.
+</p>
+
+</div>
+
+
+<div class="fact-card">
+
+<h3>Quick Facts</h3>
+
+<ul class="fact-list">
+
+<li>
+<span class="k">Degree</span>
+<span class="v">B.E. CSE</span>
+</li>
+
+<li>
+<span class="k">CGPA</span>
+<span class="v">8.5 / 10</span>
+</li>
+
+<li>
+<span class="k">Focus</span>
+<span class="v">Web Development</span>
+</li>
+
+<li>
+<span class="k">Languages</span>
+<span class="v">Java, Python</span>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+<div class="wrap">
+
+<div class="sec-head">
+
+<p class="sec-tag">02 — Skills</p>
+
+<h2>My Skills</h2>
+
+<p class="sec-desc">
+Technologies and skills I use while learning and building projects.
+</p>
+
+</div>
+
+
+<div class="skill-cols">
+
+<div class="skill-col">
+
+<h3>Programming</h3>
+
+<div class="chips">
+
+<span class="chip">Java</span>
+<span class="chip">Python</span>
+<span class="chip">C</span>
+<span class="chip">Kotlin</span>
+
+</div>
+
+</div>
+
+
+<div class="skill-col">
+
+<h3>Web Development</h3>
+
+<div class="chips">
+
+<span class="chip">HTML</span>
+<span class="chip">CSS</span>
+<span class="chip">JavaScript</span>
+<span class="chip">Responsive Design</span>
+
+</div>
+
+</div>
+
+
+<div class="skill-col">
+
+<h3>Soft Skills</h3>
+
+<div class="chips">
+
+<span class="chip">Problem Solving</span>
+<span class="chip">Teamwork</span>
+<span class="chip">Communication</span>
+<span class="chip">Adaptability</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROJECT SHOWCASE
+========================= -->
+
+<section id="projects">
+
+<div class="wrap">
+
+<div class="sec-head">
+
+<p class="sec-tag">03 — Projects</p>
+
+<h2>Project Showcase</h2>
+
+<p class="sec-desc">
+Some of the projects I have worked on while developing my
+programming and web development skills.
+</p>
+
+</div>
+
+
+<div class="projects-grid">
+
+
+<!-- PROJECT 1 -->
+
+<div class="project">
+
+<p class="sec-tag">Project 01</p>
+
+<h3>Online Food Ordering Website</h3>
+
+<p>
+A web-based food ordering application designed to allow
+users to browse food items and interact with an online
+ordering interface.
+</p>
+
+<div class="project-tags">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="project">
+
+<p class="sec-tag">Project 02</p>
+
+<h3>Library Management System</h3>
+
+<p>
+A library management application developed to practice
+application development concepts and manage library-related
+operations.
+</p>
+
+<div class="project-tags">
+
+<span>Kotlin</span>
+<span>Application</span>
+<span>Database</span>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="project">
+
+<p class="sec-tag">Project 03</p>
+
+<h3>Hotel Management Website</h3>
+
+<p>
+An academic web project designed to organize hotel-related
+information, services and operational pages into a simple
+user-friendly interface.
+</p>
+
+<div class="project-tags">
+
+<span>HTML</span>
+<span>Web Design</span>
+<span>UI Layout</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     AI ASSISTED ACTIVITY
+========================= -->
+
+<section id="ai">
+
+<div class="wrap">
+
+<div class="sec-head">
+
+<p class="sec-tag">04 — AI Assisted Activity</p>
+
+<h2>How AI Supported This Project</h2>
+
+</div>
+
+
+<div class="ai-box">
+
+<ul>
+
+<li>
+<strong>Webpage Layout:</strong>
+AI was used to generate and suggest portfolio
+webpage layouts and section structures.
+</li>
+
+<li>
+<strong>Responsive Design:</strong>
+AI was used to improve the CSS media queries
+and make the website work on mobile, tablet
+and desktop screens.
+</li>
+
+<li>
+<strong>UI Troubleshooting:</strong>
+AI was used to identify and fix layout,
+navigation and responsive design issues.
+</li>
+
+<li>
+<strong>JavaScript Support:</strong>
+AI assistance was used to implement and
+troubleshoot interactive features such as
+the mobile menu, theme switcher and contact form.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+<div class="wrap contact-container">
+
+
+<div class="contact-info">
+
+<p class="sec-tag">05 — Contact</p>
+
+<h2>Let's Connect</h2>
+
+<p>
+If you would like to discuss a project, internship
+opportunity or collaboration, send me a message.
+</p>
+
+<p>
+I am interested in opportunities where I can
+improve my technical skills and contribute to
+real-world projects.
+</p>
+
+</div>
+
+
+<!-- CONTACT FORM -->
+
+<form class="contact-form" id="contactForm">
+
+<div class="form-group">
+
+<label for="name">Name</label>
+
+<input
+type="text"
+id="name"
+name="name"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">Email</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Enter your email"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="message">Message</label>
+
+<textarea
+id="message"
+name="message"
+placeholder="Enter your message"
+required></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="btn btn-primary">
+Send Message
+</button>
+
+
+<p id="formMessage"></p>
+
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+© <span id="year"></span> Malathi S — Personal Portfolio
+
+</footer>
+
+
+<script>
+
+/* =========================
+   CURRENT YEAR
+========================= */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* =========================
+   DARK / LIGHT THEME
+========================= */
+
+const root = document.documentElement;
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function() {
+
+const currentTheme =
+root.getAttribute("data-theme");
+
+const newTheme =
+currentTheme === "dark" ? "light" : "dark";
+
+root.setAttribute("data-theme", newTheme);
+
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const burger =
+document.getElementById("burgerBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+burger.addEventListener("click", function() {
+
+const isOpen =
+navLinks.classList.toggle("open");
+
+burger.setAttribute(
+"aria-expanded",
+String(isOpen)
+);
+
+});
+
+
+/* Close mobile menu
+   after selecting a link */
+
+navLinks.querySelectorAll("a").forEach(function(link) {
+
+link.addEventListener("click", function() {
+
+navLinks.classList.remove("open");
+
+burger.setAttribute(
+"aria-expanded",
+"false"
+);
+
+});
+
+});
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+const contactForm =
+document.getElementById("contactForm");
+
+const formMessage =
+document.getElementById("formMessage");
+
+contactForm.addEventListener("submit", function(event) {
+
+event.preventDefault();
+
+const name =
+document.getElementById("name").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+const message =
+document.getElementById("message").value.trim();
+
+
+if (name === "" ||
+email === "" ||
+message === "") {
+
+formMessage.textContent =
+"Please fill in all fields.";
+
+return;
+
+}
+
+
+/* Demonstration message.
+   A real website would send this
+   information to a backend/email service. */
+
+formMessage.textContent =
+"Thank you, " + name +
+"! Your message has been received.";
+
+contactForm.reset();
+
+});
+
+</script>
+
+</body>
+</html>
